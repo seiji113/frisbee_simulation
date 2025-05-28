@@ -134,7 +134,7 @@ mass = st.sidebar.slider("Frisbee Mass (kg)", 0.05, 0.2, 0.175, 0.005, help="wei
 
 
 if _RELEASE:
-    root_dir = os.path.dirname(os.path.abspath(__file__))
+    root_dir = os.getcwd()  # works reliably in Streamlit
     build_dir = os.path.join(root_dir, 'frontend/build')
 
     _scrollable_textbox = components.declare_component(
