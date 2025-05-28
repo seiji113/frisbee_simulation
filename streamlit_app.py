@@ -178,7 +178,7 @@ with st.expander("🔬 Physics Model Details (click to expand)"):
 
 
 if st.button("Find Optimal Settings"):
-    with st.spinner("Calculating optimal frisbee settings...approximately 20 seconds)
+    with st.spinner("Calculating optimal frisbee settings...approximately 20 seconds")
         best_range = 0
         best_settings = (0, 0, 0)
         best_trajectory = ([], []) # Store x and y coordinates
