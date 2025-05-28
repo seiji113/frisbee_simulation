@@ -145,13 +145,11 @@ def simulate_flight(launch_angle, nose_angle_init, RPM_init, wind_speed, KE, gra
 
 
 # --- Streamlit App ---
-st.title("Flight")
-st.image("Screenshot 2025-05-27 21.47.25.png", width=100)
-st.title("Perfected")
+st.title("FlightPerfected" )
 st.subheader("Spin it faster, tilt it higher, launch it into a headwind—and watch the flight path change in real time. This app isn’t just a simulator—it’s a virtual wind tunnel powered by real-world aerodynamics. Adjust RPM, release angle, velocity, and wind speed, and see how lift, drag, and gyroscopic stability shape the perfect throw. Whether you're a curious student or an ultimate frisbee fanatic, Flight Perfected lets you explore the science behind every soaring disc. Get started no by changing the parameters on the side!")
 st.markdown("made by Seiji Iigaya. Check out my frisbee team website: https://www.tigerultimatenj.com/ Any suggestions or feedback? Contact me at seijithestone@gmail.com")
-st.sidebar.title("Get started by inputting parameters!")
-st.sidebar.markdown("Sliders")
+st.sidebar.title("st.image("Screenshot 2025-05-27 21.47.25.png", width=100)")
+st.sidebar.markdown("Get started by inputting parameters!")
 wind_speed = st.sidebar.slider("Wind Speed (m/s)", -10.0, 10.0, 0.0, 0.1, help="Meters per second. Positive wind speeds are tailwinds while negative wind speeds are headwinds.")
 KE = st.sidebar.slider("Initial Kinetic Energy (J)", 10.0, 120.0, 20.0, 0.5, help="Joules. The maximum energy input. As a benchmark, this will be about 10 for middle school, 20 for high school, 35 for college, and up to 80 for professional players.")
 gravity = st.sidebar.slider("Gravity (m/s²)", 8.0, 12.0, 9.81, 0.01, help="Usually you are on Earth, so no need to change this.")
