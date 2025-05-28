@@ -166,7 +166,7 @@ This simulation models the real-world flight of a frisbee using key principles o
 
 ---
 
-This model assumes near-sea-level conditions, still air unless wind is enabled, and a rigid disc.
+This model assumes that the disc is circular, it does not account for the rim of the disc.
 """
 
 
