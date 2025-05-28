@@ -135,27 +135,40 @@ physics_description = """
 This simulation models the real-world flight of a frisbee using key principles of aerodynamics and rotational dynamics:
 
 - **Translational Kinetic Energy**  
-  \\( KE = \\frac{1}{2}mv^2 \\)  
-  Determines the initial forward motion of the disc.
+  $KE = \\frac{1}{2} m v^2$  
+  Determines the initial forward motion of the disc, where:
+  - $m$ = mass of the frisbee (≈ 0.175 kg)  
+  - $v$ = release velocity (m/s)
 
 - **Rotational Energy**  
-  \\( KE_{rot} = \\frac{1}{2}I\\omega^2 \\)  
-  Where \\( I = \\frac{1}{2}mr^2 \\) and \\( \\omega \\) is angular velocity. Higher spin increases flight stability.
+  $KE_{rot} = \\frac{1}{2} I \\omega^2$  
+  Where:
+  - $I = \\frac{1}{2} m r^2$ is the moment of inertia  
+  - $\\omega$ is angular velocity (rad/s)  
+  Higher spin increases flight stability.
 
-- **Aerodynamic Forces**  
-  - **Lift:** \\( F_L = \\frac{1}{2} C_L \\rho A v^2 \\)  
-  - **Drag:** \\( F_D = \\frac{1}{2} C_D \\rho A v^2 \\)  
-  Coefficients \\( C_L \\) and \\( C_D \\) depend on angle of attack and change dynamically in flight.
+- **Lift and Drag Forces**  
+  - Lift: $F_L = \\frac{1}{2} C_L \\rho A v^2$  
+  - Drag: $F_D = \\frac{1}{2} C_D \\rho A v^2$  
+  Where:
+  - $C_L$, $C_D$ are lift and drag coefficients varying with angle of attack  
+  - $\\rho$ is air density (~1.225 kg/m³)  
+  - $A$ is the frisbee's reference area
 
 - **Gyroscopic Stability**  
-  Spinning discs resist tilt due to gyroscopic effects, modeled using dynamic precession equations.
+  Modeled via spin rate (RPM) and precession; higher spin provides more stable flight.
 
 - **Wind Effects**  
-  Headwinds and tailwinds affect relative airspeed, modifying lift and drag forces in real time.
+  Headwinds and tailwinds affect relative airspeed, modifying aerodynamic forces dynamically.
 
 - **Tilt Dynamics**  
-  Torque from aerodynamic misalignment causes the nose angle to adjust during flight. This affects angle of attack and lift.
+  Aerodynamic torque causes the frisbee's nose angle to adjust during flight, affecting lift and drag.
+
+---
+
+This model assumes near-sea-level conditions, still air unless wind is enabled, and a rigid disc.
 """
+
 
 with st.expander("🔬 Physics Model Details (click to expand)"):
     st.markdown(physics_description)
