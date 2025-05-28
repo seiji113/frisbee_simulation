@@ -145,7 +145,7 @@ def simulate_flight(launch_angle, nose_angle_init, RPM_init, wind_speed, KE, gra
 
 
 # --- Streamlit App ---
-st.title("Flight Perfected")
+st.title("Flight, "Screenshot 2025-05-27 21.47.25.png", Perfected")
 st.subheader("Spin it faster, tilt it higher, launch it into a headwind—and watch the flight path change in real time. This app isn’t just a simulator—it’s a virtual wind tunnel powered by real-world aerodynamics. Adjust RPM, release angle, velocity, and wind speed, and see how lift, drag, and gyroscopic stability shape the perfect throw. Whether you're a curious student or an ultimate frisbee fanatic, Flight Perfected lets you explore the science behind every soaring disc. Get started no by changing the parameters on the side!")
 st.markdown("made by Seiji Iigaya. Check out my frisbee team website: https://www.tigerultimatenj.com/ Any suggestions or feedback? Contact me at seijithestone@gmail.com")
 st.sidebar.title("Get started by inputting parameters!")
