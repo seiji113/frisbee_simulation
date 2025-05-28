@@ -29,7 +29,7 @@ placeholder = st.empty()
 
 # Use HTML <img> tag as a string with proper quotes and attributes
 img_html = '''
-<img src="Screenshot 2025-05-27 21.47.25.png" class="fade-in" width="800">
+<img src="Screenshot 2025-05-27 21.47.25.png" class="fade-in" width="300">
 '''
 
 # Show the logo with fade-in effect
