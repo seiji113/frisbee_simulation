@@ -7,6 +7,9 @@ import streamlit.components.v1 as components
 from distutils.command.build import build
 import time
 
+import streamlit as st
+import time
+
 fade_in_css = """
 <style>
 @keyframes fadeIn {
@@ -19,15 +22,20 @@ fade_in_css = """
 </style>
 """
 
-# Inject the CSS into the app
+# Inject CSS
 st.markdown(fade_in_css, unsafe_allow_html=True)
+
 placeholder = st.empty()
 
+# Use HTML <img> tag as a string with proper quotes and attributes
+img_html = '''
+<img src="Screenshot 2025-05-27 21.47.25.png" class="fade-in" width="800">
+'''
 
 # Show the logo with fade-in effect
-placeholder.markdown(Screenshot 2025-05-27 21.47.25.png, class="fade-in", width="800", unsafe_allow_html=True)
+placeholder.markdown(img_html, unsafe_allow_html=True)
 
-# Wait 3 seconds so user sees the logo fading in
+# Wait 3 seconds to let the fade-in happen
 time.sleep(3)
 
 # Clear the placeholder (removes the logo)
