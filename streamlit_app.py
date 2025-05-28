@@ -7,18 +7,32 @@ import streamlit.components.v1 as components
 from distutils.command.build import build
 import time
 
+fade_in_css = """
+<style>
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+.fade-in {
+  animation: fadeIn 2s ease-in forwards;
+}
+</style>
+"""
+
+# Inject the CSS into the app
+st.markdown(fade_in_css, unsafe_allow_html=True)
 placeholder = st.empty()
 
-with placeholder.container():
-    st.image("Screenshot 2025-05-27 21.35.19.png", width=300)
 
-time.sleep(2)
+# Show the logo with fade-in effect
+placeholder.markdown('<Screenshot 2025-05-27 21.47.25.png" class="fade-in" width="800">', unsafe_allow_html=True)
 
+# Wait 3 seconds so user sees the logo fading in
+time.sleep(3)
+
+# Clear the placeholder (removes the logo)
 placeholder.empty()
-# --- Global constants ---
-g = 9.81
-penalty_coeff = 0.02  # Tune as needed
-_RELEASE = True
+
 
 # --- Define the simulation function ---
 def simulate_flight(launch_angle, nose_angle_init, RPM_init, wind_speed, KE, gravity, radius, area, rho, mass):
