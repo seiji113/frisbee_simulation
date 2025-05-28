@@ -34,6 +34,9 @@ time.sleep(3)
 placeholder.empty()
 
 
+
+penalty_coeff = 0.02
+
 # --- Define the simulation function ---
 def simulate_flight(launch_angle, nose_angle_init, RPM_init, wind_speed, KE, gravity, radius, area, rho, mass):
     moment_of_inertia = 0.5 * mass * radius ** 2
