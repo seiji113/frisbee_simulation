@@ -131,59 +131,32 @@ radius = st.sidebar.slider("Frisbee Radius (m)", 0.05, 0.2, 0.136525, 0.005, hel
 area = st.sidebar.slider("Frisbee Area (m²)", 0.01, 0.1, 0.018639, 0.001, help="Area of disc in square meters")
 rho = st.sidebar.slider("Air Density (kg/m³)", 0.5, 1.5, 1.225, 0.01, help="Air density, kg/m^3. The default is 15 degrees at see level")
 mass = st.sidebar.slider("Frisbee Mass (kg)", 0.05, 0.2, 0.175, 0.005, help="weight of disc in kilograms")
+with st.expander("🔬 Physics Model Details (click to expand)"):
+    st.markdown(This simulation models the real-world flight of a frisbee using key principles of aerodynamics and rotational dynamics:
+
+- **Translational Kinetic Energy**  
+  \\( KE = \\frac{1}{2}mv^2 \\)  
+  Determines the initial forward motion of the disc.
+
+- **Rotational Energy**  
+  \\( KE_{rot} = \\frac{1}{2}I\\omega^2 \\)  
+  Where \\( I = \\frac{1}{2}mr^2 \\) and \\( \\omega \\) is angular velocity. Higher spin increases flight stability.
+
+- **Aerodynamic Forces**  
+  - **Lift:** \\( F_L = \\frac{1}{2} C_L \\rho A v^2 \\)  
+  - **Drag:** \\( F_D = \\frac{1}{2} C_D \\rho A v^2 \\)  
+  Coefficients \\( C_L \\) and \\( C_D \\) depend on angle of attack and change dynamically in flight.
+
+- **Gyroscopic Stability**  
+  Spinning discs resist tilt due to gyroscopic effects, modeled using dynamic precession equations.
+
+- **Wind Effects**  
+  Headwinds and tailwinds affect relative airspeed, modifying lift and drag forces in real time.
+
+- **Tilt Dynamics**  
+  Torque from aerodynamic misalignment causes the nose angle to adjust during flight. This affects angle of attack and lift.)
 
 
-if _RELEASE:
-    root_dir = os.getcwd()  # works reliably in Streamlit
-    build_dir = os.path.join(root_dir, 'frontend/build')
-
-    _scrollable_textbox = components.declare_component(
-        "scrollableTextbox",
-        path=build_dir
-    )
-else:
-    _scrollable_textbox = components.declare_component(
-        "scrollableTextbox",
-        url="http://localhost:3001"
-    )
-
-
-def scrollableTextbox(text:str, height:int=100, fontFamily:str='Helvetica', border:bool=True, key=None):
-    return _scrollable_textbox(text=text, height=height, fontFamily=fontFamily, border=border, key=key, default=None)
-physics_description = """
-### Physics Model Details
-
-**Kinetic Energy (KE):**  
-\\( KE = \\frac{1}{2}mv^2 \\)
-
-- Where:
-  - \\( m \\) = mass of the frisbee (≈ 0.175 kg)  
-  - \\( v \\) = release velocity (m/s)
-
-**Rotational Energy:**  
-\\( KE_{rot} = \\frac{1}{2}I\\omega^2 \\)
-
-- \\( I \\) = moment of inertia ≈ \\( \\frac{1}{2}mr^2 \\)  
-- \\( \\omega \\) = angular velocity (rad/s)
-
-**Lift and Drag:**  
-\\( F_L = \\frac{1}{2} C_L \\rho A v^2 \\)  
-\\( F_D = \\frac{1}{2} C_D \\rho A v^2 \\)
-
-- \\( C_L \\), \\( C_D \\): coefficients that vary with angle of attack  
-- \\( \\rho \\): air density (~1.225 kg/m³)  
-- \\( A \\): reference area of the disc
-
-**Gyroscopic Stability:**  
-- Modeled via spin rate (RPM) and precession.  
-- Higher spin = more stable flight.
-
----
-
-This model assumes near-sea-level conditions, still air (unless wind is enabled), and a rigid disc.
-"""
-
-scrollableTextbox(text=physics_description, height=300, fontFamily="Helvetica", border=True, key="physics_model")
 
 
 if st.button("Find Optimal Settings"):
