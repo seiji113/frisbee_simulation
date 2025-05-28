@@ -131,8 +131,8 @@ radius = st.sidebar.slider("Frisbee Radius (m)", 0.05, 0.2, 0.136525, 0.005, hel
 area = st.sidebar.slider("Frisbee Area (m²)", 0.01, 0.1, 0.018639, 0.001, help="Area of disc in square meters")
 rho = st.sidebar.slider("Air Density (kg/m³)", 0.5, 1.5, 1.225, 0.01, help="Air density, kg/m^3. The default is 15 degrees at see level")
 mass = st.sidebar.slider("Frisbee Mass (kg)", 0.05, 0.2, 0.175, 0.005, help="weight of disc in kilograms")
-with st.expander("🔬 Physics Model Details (click to expand)"):
-    st.markdown(This simulation models the real-world flight of a frisbee using key principles of aerodynamics and rotational dynamics:
+physics_description = """
+This simulation models the real-world flight of a frisbee using key principles of aerodynamics and rotational dynamics:
 
 - **Translational Kinetic Energy**  
   \\( KE = \\frac{1}{2}mv^2 \\)  
@@ -154,7 +154,12 @@ with st.expander("🔬 Physics Model Details (click to expand)"):
   Headwinds and tailwinds affect relative airspeed, modifying lift and drag forces in real time.
 
 - **Tilt Dynamics**  
-  Torque from aerodynamic misalignment causes the nose angle to adjust during flight. This affects angle of attack and lift.)
+  Torque from aerodynamic misalignment causes the nose angle to adjust during flight. This affects angle of attack and lift.
+"""
+
+with st.expander("🔬 Physics Model Details (click to expand)"):
+    st.markdown(physics_description)
+
 
 
 
