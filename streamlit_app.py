@@ -178,17 +178,18 @@ with st.expander("🔬 Physics Model Details (click to expand)"):
 
 
 if st.button("Find Optimal Settings"):
-    best_range = 0
-    best_settings = (0, 0, 0)
-    best_trajectory = ([], []) # Store x and y coordinates
-    for angle in range(5, 46, 2):
-        for nose in range(5, 46, 2):
-            for rpm in range(500, 4001, 30):
-                dist, x_coords, y_coords = simulate_flight(angle, nose, rpm, wind_speed, KE, gravity, radius, area, rho, mass)
-                if dist > best_range:
-                    best_range = dist
-                    best_settings = (angle, nose, rpm)
-                    best_trajectory = (x_coords, y_coords)
+    with st.spinner("Calculating optimal frisbee settings...approximately 20 seconds)
+        best_range = 0
+        best_settings = (0, 0, 0)
+        best_trajectory = ([], []) # Store x and y coordinates
+        for angle in range(5, 46, 2):
+            for nose in range(5, 46, 2):
+                for rpm in range(500, 4001, 30):
+                    dist, x_coords, y_coords = simulate_flight(angle, nose, rpm, wind_speed, KE, gravity, radius, area, rho, mass)
+                    if dist > best_range:
+                        best_range = dist
+                        best_settings = (angle, nose, rpm)
+                        best_trajectory = (x_coords, y_coords)
 
     st.success(f"Max Distance:  {best_range:.2f} m")
     st.info(f"Best Launch Angle:  {best_settings[0]}°\nBest Nose Angle:  {best_settings[1]}°\nBest RPM: {best_settings[2]}")
@@ -196,7 +197,7 @@ if st.button("Find Optimal Settings"):
     # now add the code to plot the trajectory of the frisbee
     fig, ax = plt.subplots()
     ax.plot(best_trajectory[0], best_trajectory[1])
-    ax.set_xlabel("x (m)")
-    ax.set_ylabel("y (m)")
+    ax.set_xlabel("distance (m)")
+    ax.set_ylabel("height (m)")
     ax.set_title("Frisbee Trajectory")
     st.pyplot(fig)
