@@ -181,9 +181,9 @@ if st.button("Find Optimal Settings"):
     best_range = 0
     best_settings = (0, 0, 0)
     best_trajectory = ([], []) # Store x and y coordinates
-    for angle in range(5, 46, 5):
-        for nose in range(5, 46, 5):
-            for rpm in range(500, 4001, 250):
+    for angle in range(5, 46, 2):
+        for nose in range(5, 46, 2):
+            for rpm in range(500, 4001, 30):
                 dist, x_coords, y_coords = simulate_flight(angle, nose, rpm, wind_speed, KE, gravity, radius, area, rho, mass)
                 if dist > best_range:
                     best_range = dist
