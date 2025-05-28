@@ -5,7 +5,16 @@ import matplotlib.pyplot as plt
 import os
 import streamlit.components.v1 as components
 from distutils.command.build import build
+import time
 
+placeholder = st.empty()
+
+with placeholder.container():
+    st.image("logo.png", width=300)
+
+time.sleep(2)
+
+placeholder.empty()
 # --- Global constants ---
 g = 9.81
 penalty_coeff = 0.02  # Tune as needed
@@ -120,7 +129,7 @@ def simulate_flight(launch_angle, nose_angle_init, RPM_init, wind_speed, KE, gra
 
 # --- Streamlit App ---
 st.title("Optimizing Frisbee Flight")
-st.subheader("This app simulates the physics of a flying frisbee using a computational model based on real-world aerodynamics. Users can adjust parameters such as spin rate (RPM), release angle, velocity, and wind speed to visualize how each factor influences frisbee flight. The model incorporates lift and drag coefficients (Cl and Cd), gyroscopic stability, tilt, and wind vectors to generate accurate flight paths.")
+st.subheader("The most accessible app that simulates the physics of a flying frisbee using a computational model based on real-world aerodynamics. Users can adjust parameters such as spin rate (RPM), release angle, velocity, and wind speed to visualize how each factor influences frisbee flight. The model incorporates lift and drag coefficients (Cl and Cd), gyroscopic stability, tilt, and wind vectors to generate accurate flight paths.")
 st.markdown("made by Seiji Iigaya. Check out my frisbee team website: https://www.tigerultimatenj.com/ Any suggestions or feedback? Contact me at seijithestone@gmail.com")
 st.sidebar.title("Sidebar Title")
 st.sidebar.markdown("Sliders")
