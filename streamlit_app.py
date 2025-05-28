@@ -9,6 +9,7 @@ from distutils.command.build import build
 # --- Global constants ---
 g = 9.81
 penalty_coeff = 0.02  # Tune as needed
+_RELEASE = True
 
 # --- Define the simulation function ---
 def simulate_flight(launch_angle, nose_angle_init, RPM_init, wind_speed, KE, gravity, radius, area, rho, mass):
@@ -130,7 +131,7 @@ radius = st.sidebar.slider("Frisbee Radius (m)", 0.05, 0.2, 0.136525, 0.005, hel
 area = st.sidebar.slider("Frisbee Area (m²)", 0.01, 0.1, 0.018639, 0.001, help="Area of disc in square meters")
 rho = st.sidebar.slider("Air Density (kg/m³)", 0.5, 1.5, 1.225, 0.01, help="Air density, kg/m^3. The default is 15 degrees at see level")
 mass = st.sidebar.slider("Frisbee Mass (kg)", 0.05, 0.2, 0.175, 0.005, help="weight of disc in kilograms")
-_RELEASE = True
+
 
 if _RELEASE:
     root_dir = os.path.dirname(os.path.abspath(__file__))
