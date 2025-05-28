@@ -25,7 +25,7 @@ placeholder = st.empty()
 
 
 # Show the logo with fade-in effect
-placeholder.markdown('<Screenshot 2025-05-27 21.47.25.png" class="fade-in" width="800">', unsafe_allow_html=True)
+placeholder.markdown(Screenshot 2025-05-27 21.47.25.png, class="fade-in", width="800", unsafe_allow_html=True)
 
 # Wait 3 seconds so user sees the logo fading in
 time.sleep(3)
