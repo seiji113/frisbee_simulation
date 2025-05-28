@@ -10,35 +10,33 @@ import time
 import streamlit as st
 import time
 
+import streamlit as st
+import time
+
 fade_in_css = """
 <style>
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity: 1;}
 }
-.fade-in {
+.fade-in img {
   animation: fadeIn 2s ease-in forwards;
 }
 </style>
 """
 
-# Inject CSS
 st.markdown(fade_in_css, unsafe_allow_html=True)
 
 placeholder = st.empty()
 
-# Use HTML <img> tag as a string with proper quotes and attributes
-img_html = '''
-<img src="Screenshot 2025-05-27 21.47.25.png" class="fade-in" width="300">
-'''
+# Use st.image wrapped in markdown to apply CSS fade-in class
+with placeholder.container():
+    st.markdown('<div class="fade-in">', unsafe_allow_html=True)
+    st.image("Screenshot 2025-05-27 21.47.25.png", width=800)
+    st.markdown('</div>', unsafe_allow_html=True)
 
-# Show the logo with fade-in effect
-placeholder.markdown(img_html, unsafe_allow_html=True)
-
-# Wait 3 seconds to let the fade-in happen
 time.sleep(3)
 
-# Clear the placeholder (removes the logo)
 placeholder.empty()
 
 
