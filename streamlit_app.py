@@ -10,7 +10,7 @@ import time
 placeholder = st.empty()
 
 with placeholder.container():
-    st.image("logo.png", width=300)
+    st.image("Screenshot 2025-05-27 21.35.19.png", width=300)
 
 time.sleep(2)
 
