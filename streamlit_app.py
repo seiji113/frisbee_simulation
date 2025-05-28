@@ -151,7 +151,7 @@ def simulate_flight(launch_angle, nose_angle_init, RPM_init, wind_speed, KE, gra
 st.title("Optimizing Frisbee Flight")
 st.subheader("The most accessible app that simulates the physics of a flying frisbee using a computational model based on real-world aerodynamics. Users can adjust parameters such as spin rate (RPM), release angle, velocity, and wind speed to visualize how each factor influences frisbee flight. The model incorporates lift and drag coefficients (Cl and Cd), gyroscopic stability, tilt, and wind vectors to generate accurate flight paths.")
 st.markdown("made by Seiji Iigaya. Check out my frisbee team website: https://www.tigerultimatenj.com/ Any suggestions or feedback? Contact me at seijithestone@gmail.com")
-st.sidebar.title("Sidebar Title")
+st.sidebar.title("Get started by inputting parameters!")
 st.sidebar.markdown("Sliders")
 wind_speed = st.sidebar.slider("Wind Speed (m/s)", -10.0, 10.0, 0.0, 0.1, help="Meters per second. Positive wind speeds are tailwinds while negative wind speeds are headwinds.")
 KE = st.sidebar.slider("Initial Kinetic Energy (J)", 10.0, 120.0, 20.0, 0.5, help="Joules. The maximum energy input. As a benchmark, this will be about 10 for middle school, 20 for high school, 35 for college, and up to 80 for professional players.")
