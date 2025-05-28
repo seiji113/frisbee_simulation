@@ -7,12 +7,6 @@ import streamlit.components.v1 as components
 from distutils.command.build import build
 import time
 
-import streamlit as st
-import time
-
-import streamlit as st
-import time
-
 fade_in_css = """
 <style>
 @keyframes fadeIn {
